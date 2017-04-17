@@ -13,6 +13,9 @@
 
 - (BOOL)safe_isEqualToNumber:(NSNumber *)number {
     if (!number) {
+#ifdef DEBUG
+        NSAssert(false, @"NSNumber isEqualToNumber: number is nil");
+#endif
         return NO;
     }
     return [self safe_isEqualToNumber:number];
@@ -20,6 +23,9 @@
 
 - (NSComparisonResult)safe_compare:(NSNumber *)number {
     if (!number) {
+#ifdef DEBUG
+        NSAssert(false, @"NSNumber compare: number is nil");
+#endif
         return NSOrderedAscending;
     }
     return [self safe_compare:number];

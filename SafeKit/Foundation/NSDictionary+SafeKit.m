@@ -15,6 +15,9 @@
     NSUInteger newCnt = 0;
     for (NSUInteger i = 0; i < cnt; i++) {
         if (!(keys[i] && objects[i])) {
+#ifdef DEBUG
+            NSAssert(false, @"NSDictionary initWithObjects:forKeys:count: key || objects  is nil");
+#endif
             break;
         }
         newCnt++;

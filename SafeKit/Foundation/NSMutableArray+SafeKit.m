@@ -13,6 +13,9 @@
 
 - (void)safe_addObject:(id)anObject {
     if (!anObject) {
+#ifdef DEBUG
+        NSAssert(false, @"NSMutableArray addObject: anObject is nil");
+#endif
         return;
     }
     [self safe_addObject:anObject];
@@ -20,9 +23,15 @@
 
 - (void)safe_insertObject:(id)anObject atIndex:(NSUInteger)index {
     if (index > [self count]) {
+#ifdef DEBUG
+        NSAssert(false, @"NSMutableArray insertObject:atIndex: index > count");
+#endif
         return;
     }
     if (!anObject) {
+#ifdef DEBUG
+        NSAssert(false, @"NSMutableArray addObject: anObject is nil");
+#endif
         return;
     }
     [self safe_insertObject:anObject atIndex:index];
@@ -30,6 +39,9 @@
 
 - (void)safe_removeObjectAtIndex:(NSUInteger)index {
     if (index >= [self count]) {
+#ifdef DEBUG
+        NSAssert(false, @"NSMutableArray removeObjectAtIndex: index >= count");
+#endif
         return;
     }
     
@@ -37,9 +49,15 @@
 }
 - (void)safe_replaceObjectAtIndex:(NSUInteger)index withObject:(id)anObject {
     if (index >= [self count]) {
+#ifdef DEBUG
+        NSAssert(false, @"NSMutableArray replaceObjectAtIndex:withObject: index >= count");
+#endif
         return;
     }
     if (!anObject) {
+#ifdef DEBUG
+        NSAssert(false, @"NSMutableArray replaceObjectAtIndex:withObject: anObject is nil");
+#endif
         return;
     }
     [self safe_replaceObjectAtIndex:index withObject:anObject];

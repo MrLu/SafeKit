@@ -40,7 +40,13 @@
         return;
     }
     Method srcMethod = class_getInstanceMethod(srcClass,srcSel);
+    if (!srcMethod) {
+        return;
+    }
     Method tarMethod = class_getInstanceMethod(tarClass,tarSel);
+    if (!tarMethod) {
+        return;
+    }
     method_exchangeImplementations(srcMethod, tarMethod);
 }
 

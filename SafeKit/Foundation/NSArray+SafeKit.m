@@ -15,6 +15,9 @@
     NSUInteger newCnt = 0;
     for (NSUInteger i = 0; i < cnt; i++) {
         if (!objects[i]) {
+#ifdef DEBUG
+            NSAssert(false, @"NSArray initWithObjects:count: anObject is nil");
+#endif
             break;
         }
         newCnt++;
@@ -25,6 +28,9 @@
 
 - (id)safe_objectAtIndex:(NSUInteger)index {
     if (index >= [self count]) {
+#ifdef DEBUG
+        NSAssert(false, @"NSArray objectAtIndex: index >= count");
+#endif
         return nil;
     }
     return [self safe_objectAtIndex:index];
@@ -32,6 +38,9 @@
 
 - (NSArray *)safe_arrayByAddingObject:(id)anObject {
     if (!anObject) {
+#ifdef DEBUG
+        NSAssert(false, @"NSArray arrayByAddingObject: anObject is nil");
+#endif
         return self;
     }
     return [self safe_arrayByAddingObject:anObject];

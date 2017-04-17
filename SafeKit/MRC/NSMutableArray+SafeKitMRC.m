@@ -14,6 +14,9 @@
 
 - (id)safe_objectAtIndex:(NSUInteger)index {
     if (index >= [self count]) {
+#ifdef DEBUG
+        NSAssert(false, @"NSMutableArray objectAtIndex: index >= count");
+#endif
         return nil;
     }
     return [self safe_objectAtIndex:index];
