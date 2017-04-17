@@ -8,7 +8,6 @@
 
 #import "NSObject+Swizzle.h"
 #import <objc/runtime.h>
-#import "SafeKitMacro.h"
 
 @implementation NSObject(Swizzle)
 

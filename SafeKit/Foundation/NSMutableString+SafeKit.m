@@ -15,7 +15,7 @@
 - (void)safe_appendString:(NSString *)aString {
     if (!aString) {
 #ifdef DEBUG
-        NSAssert(false, @"NSMutableString appendString: aString is nil");
+        SafeAssert(false, @"NSMutableString appendString: aString is nil");
 #endif
         return;
     }
@@ -25,7 +25,7 @@
 - (void)safe_appendFormat:(NSString *)format, ... NS_FORMAT_FUNCTION(1,2) {
     if (!format) {
 #ifdef DEBUG
-        NSAssert(false, @"NSMutableString appendFormat: format is nil");
+        SafeAssert(false, @"NSMutableString appendFormat: format is nil");
 #endif
         return;
     }
@@ -40,7 +40,7 @@
 - (void)safe_setString:(NSString *)aString {
     if (!aString) {
 #ifdef DEBUG
-        NSAssert(false, @"NSMutableString setString: aString is nil");
+        SafeAssert(false, @"NSMutableString setString: aString is nil");
 #endif
         return;
     }
@@ -50,13 +50,13 @@
 - (void)safe_insertString:(NSString *)aString atIndex:(NSUInteger)index {
     if (index > [self length]) {
 #ifdef DEBUG
-        NSAssert(false, @"NSMutableString insertString:atIndex: index > [self length]");
+        SafeAssert(false, @"NSMutableString insertString:atIndex: index > [self length]");
 #endif
         return;
     }
     if (!aString) {
 #ifdef DEBUG
-        NSAssert(false, @"NSMutableString setObject:forKey: aString is nil");
+        SafeAssert(false, @"NSMutableString setObject:forKey: aString is nil");
 #endif
         return;
     }

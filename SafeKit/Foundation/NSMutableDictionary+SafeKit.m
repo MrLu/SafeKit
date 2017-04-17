@@ -14,7 +14,7 @@
 - (void)safe_removeObjectForKey:(id)aKey {
     if (!aKey) {
 #ifdef DEBUG
-        NSAssert(false, @"NSMutableDictionary removeObjectForKey: aKey is nil");
+        SafeAssert(false, @"NSMutableDictionary removeObjectForKey: aKey is nil");
 #endif
         return;
     }
@@ -24,13 +24,13 @@
 - (void)safe_setObject:(id)anObject forKey:(id <NSCopying>)aKey {
     if (!anObject) {
 #ifdef DEBUG
-        NSAssert(false, @"NSMutableDictionary setObject:forKey: anObject is nil");
+        SafeAssert(false, @"NSMutableDictionary setObject:forKey: anObject is nil");
 #endif
         return;
     }
     if (!aKey) {
 #ifdef DEBUG
-        NSAssert(false, @"NSMutableDictionary setObject:forKey: aKey is nil");
+        SafeAssert(false, @"NSMutableDictionary setObject:forKey: aKey is nil");
 #endif
         return;
     }

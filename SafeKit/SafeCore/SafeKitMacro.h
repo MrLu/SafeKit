@@ -15,3 +15,7 @@
 #define SK_RELEASE(exp) [exp release]
 #define SK_RETAIN(exp) [exp retain]
 #endif
+
+//可以修改这里处理 caseTest 可以去掉
+#define SafeAssert(condition, desc, ...) \
+    NSAssert(condition, desc, ##__VA_ARGS__)

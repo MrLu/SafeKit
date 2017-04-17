@@ -14,7 +14,7 @@
 - (unichar)safe_characterAtIndex:(NSUInteger)index {
     if (index >= [self length]) {
 #ifdef DEBUG
-        NSAssert(false, @"NSString characterAtIndex: index >= length");
+        SafeAssert(false, @"NSString characterAtIndex: index >= length");
 #endif
         return 0;
     }
@@ -24,7 +24,7 @@
 - (NSString *)safe_substringWithRange:(NSRange)range {
     if (range.location + range.length > self.length) {
 #ifdef DEBUG
-        NSAssert(false, @"NSString substringWithRange: range >= length");
+        SafeAssert(false, @"NSString substringWithRange: range >= length");
 #endif
         return @"";
     }

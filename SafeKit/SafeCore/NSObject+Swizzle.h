@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SafeKitMacro.h"
 
 /*
  * This category adds methods to the NSObject.
